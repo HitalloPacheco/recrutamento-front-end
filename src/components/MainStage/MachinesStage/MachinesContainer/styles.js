@@ -11,5 +11,10 @@ export const MachineContainer = styled.div`
 `;
 
 export const StyledTitles = styled.text`
+  font-weight: 500;
+`
+
+export const StyledParans = styled.text`
   font-size: 14px;
+  color: #333;
 `

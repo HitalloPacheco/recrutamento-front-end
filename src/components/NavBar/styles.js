@@ -9,4 +9,5 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 0 10px;
   user-select: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
 `;
