@@ -3,7 +3,7 @@ import MainStage from "../../components/MainStage";
 import NavBar from "../../components/NavBar";
 import { Container } from "./styles";
 
-const Main = () => {
+const Dashboard = () => {
   return (
   <Container>
     <NavBar />
@@ -12,4 +12,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default Dashboard;
