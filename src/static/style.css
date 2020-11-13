@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Ubuntu', Helvetica, 'Courier New', Courier, monospace;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background:#00aff0;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #008bbf;
+}
