@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Context } from "../../../contexts/search";
+import { Context } from "../../../../contexts/search";
 import { Container, SearchContainer, Search, IconContainer, SearchIcon } from "./styles";
 
 const SearchBox = () => {

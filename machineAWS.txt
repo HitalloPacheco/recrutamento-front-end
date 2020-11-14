@@ -1,0 +1,22 @@
+machinesSpecifications {
+  t3.medium: { processor: "Intel Xeon Platinum 8000 3,1 GHz 2 cpu", memory: "4 GB"}
+  t3.large: { processor: "Intel Xeon Platinum 8000 3,1 GHz 2 cpu", memory: "8 GB"}
+
+  t3a.small: { processor: "AMD EPYC 7000 2,5 GHz 2 cpu", memory: "2 GB"}
+  t3a.medium: { processor: "AMD EPYC 7000 2,5 GHz 2 cpu", memory: "4 GB"}
+  t3a.large: { processor: "AMD EPYC 7000 2,5 GHz 2 cpu", memory: "8 GB"}
+  t3a.xlarge:{ processor: "AMD EPYC 7000 2,5 GHz 4 cpu", memory: "16 GB"}
+
+  c5.large: { processor: "Intel Xeon Platinum 8000 3,1 GHz 2 Cpu", memory: "4 GB"}
+  c5.xlarge: { processor: "Intel Xeon Platinum 8000 3,1 GHz 4 cpu", memory: "8 GB"}
+  c5.2xlarge: { processor: "Intel Xeon Platinum 8000 3,6 GHz 8 cpu", memory: "16 GB" }
+  c5.4xlarge: { processor: "Intel Xeon Platinum 8000 3,6 GHz 16 cpu", memory: "32 GB" }
+
+  c5d.large: { processor: "Intel Xeon Platinum 8000 3,6 GHz 2 cpu", memory: "4 GB" }
+
+  m5.large: { processor: "Intel Xeon Platinum 8000 3,1 GHz 2 cpu", memory: "8 GB" }
+  m5.xlarge:  { processor: "Intel Xeon Platinum 8000 3,1 GHz 4 cpu", memory: "16 GB" }
+
+  m5a.xlarge: { processor: "AMD EPYC 7000 2,5 GHz 4 cpu", memory: "16 GB"}
+}
+

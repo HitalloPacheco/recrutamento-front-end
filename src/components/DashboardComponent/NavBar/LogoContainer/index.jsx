@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "./styles";
-import LogoAlterdata from "../../../icons/LogoAlterdata";
+import LogoAlterdata from "../../../../icons/LogoAlterdata";
 
 const LogoContainer = () => {
   return (
