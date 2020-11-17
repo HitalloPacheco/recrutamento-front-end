@@ -5,7 +5,7 @@ const AuthComponent = () => {
   return (
   <Container>
     <StyledParam >Código de Segurança</StyledParam>
-    <StyledInput placeholder={"1234"}/>
+    <StyledInput />
   </Container>
   );
 }

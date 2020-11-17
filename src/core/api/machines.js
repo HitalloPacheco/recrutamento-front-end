@@ -1,8 +1,9 @@
 import { default as axios } from "axios";
 
-axios.defaults.baseURL = "https://recrutamento.alterdata.cloud/";
-
 export class MachineApi {
+  constructor() {
+    axios.defaults.baseURL = "https://recrutamento.alterdata.cloud/";
+  }
   async getAll() {
     const res = await axios.get("listaServidor", {
       headers: {
@@ -11,5 +12,6 @@ export class MachineApi {
       },
     });
     return res;
-  }
+  };
 }
+

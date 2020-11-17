@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../../../contexts/search";
-import { MachineApi } from "../../../../core/api";
+import { MachineApi } from "../../../../core/api/machines"
 import MachinesContainer from "./MachinesContainer";
 import { Container } from "./styles";
+
 
 const MachinesStage = () => {
   const [machines, setMachines] = useState([]);
@@ -11,9 +12,6 @@ const MachinesStage = () => {
   const filteredMachines = machines.filter((machine) =>
     machine.Instance.toLowerCase().includes(searchText.toLowerCase())
   );
-
-  const statusColor = machines.InstanceState === "Off" ? "red" : "green";
-  console.log(statusColor);
 
   useEffect(() => {
     const api = new MachineApi();
@@ -24,8 +22,8 @@ const MachinesStage = () => {
 
   return (
     <Container>
-      {filteredMachines.map((machine, statusColor) => (
-        <MachinesContainer machine={machine} color={statusColor} />
+      {filteredMachines.map((machine) => (
+        <MachinesContainer machine={machine} color={ machine.InstanceState === "Off" ? "red" : "green"} />
       ))}
     </Container>
   );
