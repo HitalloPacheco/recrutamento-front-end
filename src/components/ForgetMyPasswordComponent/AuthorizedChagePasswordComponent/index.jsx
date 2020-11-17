@@ -4,7 +4,7 @@ import PasswordComponent from "../../LoginComponent/PasswordComponent";
 import { Container, Send, PasswordContainer } from "./styles";
 import { useNavigate } from "react-router";
 
-const AuthorizedRegistrationComponent = () => {
+const AuthorizedChagePasswordComponent = () => {
   const navigate = useNavigate();
 
   return (
@@ -14,9 +14,9 @@ const AuthorizedRegistrationComponent = () => {
         <PasswordComponent />
         <PasswordComponent />
       </PasswordContainer>
-      <Send onClick={() => navigate("/dashboard")}>Cadastrar</Send>
+      <Send onClick={() => navigate("/dashboard")}>Confirmar senha</Send>
     </Container>
   );
 };
 
-export default AuthorizedRegistrationComponent;
+export default AuthorizedChagePasswordComponent;

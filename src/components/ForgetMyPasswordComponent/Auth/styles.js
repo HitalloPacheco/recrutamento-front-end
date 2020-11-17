@@ -12,6 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Send = styled.button`
+  height: 30px;
   width: 100px;
   font-size: 16px;
   border: none;
@@ -21,9 +22,5 @@ export const Send = styled.button`
   color: white;
   font-weight: 500;
   cursor: pointer;
-  padding: 5px;
-`
-
-export const PasswordContainer = styled.div`
-  margin-top: 70px;
+  margin-top: 50px;
 `

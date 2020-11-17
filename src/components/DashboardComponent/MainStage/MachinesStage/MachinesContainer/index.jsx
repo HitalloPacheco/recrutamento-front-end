@@ -1,7 +1,7 @@
 import React from "react";
 import { MachineContainer, StyledTitles, StyledParans, StatusColor } from "./styles";
 
-/*
+
 const machinesSpecifications = {
   t3_medium: {
     processor: "Intel Xeon Platinum 8000 3,1 GHz, 2 vCPUs",
@@ -45,7 +45,7 @@ const machinesSpecifications = {
   },
   m5a_xlarge: { processor: "AMD EPYC 7000 2,5 GHz, 4 vCPUs", memory: "16 GB" },
 };
-*/
+
 
 const MachinesContainer = ({ machine }) => {
   return (
@@ -55,10 +55,10 @@ const MachinesContainer = ({ machine }) => {
         {machine.Instance}
       </StyledParans>
       <StyledParans>
-        <StyledTitles>Memória RAM: </StyledTitles>8GB
+        <StyledTitles>Memória RAM: </StyledTitles>{machinesSpecifications[machine.InstanceType.replace(".", "_")].memory}
       </StyledParans>
       <StyledParans>
-        <StyledTitles>Processador: </StyledTitles>I5-9800k
+        <StyledTitles>Processador: </StyledTitles>{machinesSpecifications[machine.InstanceType.replace(".", "_")].processor}
       </StyledParans>
       <StyledParans>
         <StyledTitles>IP: </StyledTitles>
@@ -68,7 +68,7 @@ const MachinesContainer = ({ machine }) => {
         <StyledTitles>Status: </StyledTitles>
         {machine.InstanceState}
       </StyledParans>
-      <StatusColor />
+      <StatusColor color={machine.InstanceState === "On" ? "green" : "red"}/>
     </MachineContainer>
   );
 };

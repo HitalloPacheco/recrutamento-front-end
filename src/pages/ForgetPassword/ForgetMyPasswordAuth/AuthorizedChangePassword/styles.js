@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bgImage from "../../../static/bgImage.png";
+import bgImage from "../../../../static/bgImage.png";
 
 export const Container = styled.div`
   border: 1px solid #000;

@@ -1,16 +1,15 @@
 import React from "react";
-import Dashboard from "./pages/Dashboard";
-import Provider from '../src/contexts/search'
-//import Login from "./pages/Login";
-//import Register from "./pages/Register";
-//import Auth from "./pages/Register/Auth";
-import AuthorizedRegistration from "./pages/Register/Auth/AuthorizedRegistration";
+import { BrowserRouter as Router } from "react-router-dom";
+import Provider from "../src/contexts/search";
+import Routes from "./pages/routes";
 
 const App = () => {
   return (
-    <Provider>
-      {true ? <AuthorizedRegistration /> : <Dashboard />}
-    </Provider>
+    <Router>
+      <Provider>
+        <Routes />
+      </Provider>
+    </Router>
   );
 };
 

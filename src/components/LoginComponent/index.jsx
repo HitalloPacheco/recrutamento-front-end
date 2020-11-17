@@ -3,17 +3,22 @@ import LogoComponent from "./LogoComponent";
 import EmailComponent from "./EmailComponent";
 import PasswordComponent from "./PasswordComponent";
 import { Container, Register, Assitents, Send } from "./styles";
+import { useNavigate } from "react-router";
+
 
 const LoginComponent = () => {
+
+  const navigate = useNavigate();
+
   return (
     <Container>
       <LogoComponent />
       <EmailComponent />
       <PasswordComponent />
-      <Send>entrar</Send>
+      <Send onClick={() => navigate('/dashboard')}>Entrar</Send>
       <Register>
-        <Assitents>Cadastrar</Assitents>
-        <Assitents>Esqueci minha senha</Assitents>
+        <Assitents onClick={() => navigate('/register')}>Cadastrar</Assitents>
+        <Assitents onClick={() => navigate('/forgetmypassword')}>Esqueci minha senha</Assitents>
       </Register>
     </Container>
   );

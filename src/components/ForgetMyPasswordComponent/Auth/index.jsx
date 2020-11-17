@@ -4,17 +4,16 @@ import AuthComponent from "./AuthComponent";
 import { Container, Send } from "./styles";
 import { useNavigate } from "react-router";
 
-const AuthRegisterComponent = () => {
-
+const Auth = () => {
   const navigate = useNavigate();
 
   return (
     <Container>
       <LogoComponent />
       <AuthComponent />
-      <Send onClick={() => navigate('/register/authorized_registration')}>Enviar</Send>
+      <Send onClick={() => navigate("/forgetmypassword/authorizedchangepassword")}>Enviar</Send>
     </Container>
   );
 };
 
-export default AuthRegisterComponent;
+export default Auth;
