@@ -15,17 +15,23 @@ const AuthorizedChagePasswordComponent = () => {
 
   const handleClick = () => {
     const api = new UserApi();
-    if (!password || !verifiedPassword) {
-      toast.warning("Senha não preenchida!");
-    }
-    if (password === verifiedPassword) {
-      api.changePassword(email, token, password).then((res) => {
-        navigate("/dashboard");
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g
+
+    if (!passwordRegex.test(password)) {
+      toast.warning("Senha não preenchida corretamente, ela deve conter 8 digitos entre eles pelo menos 1 letra e 1 numero!");
+    } else {
+      if (password === verifiedPassword) {
+        api
+          .changePassword(email, token, password)
+          .then((res) => {
+            navigate("/dashboard");
+          })
+          .catch((err) => {
+            toast.error(err.response.data.error);
+          });
+      } else {
+        toast.error("Erro na autenticação da senha!");
       }
-    ).catch((err) => {
-      toast.error(err.response.data.error)
-    })} else {
-      toast.error("Erro na autenticação da senha!")
     }
   };
 
@@ -35,8 +41,11 @@ const AuthorizedChagePasswordComponent = () => {
     <Container>
       <LogoComponent />
       <PasswordContainer>
-        <PasswordComponent value={password} setValue={setPassword}/>
-        <PasswordComponent value={verifiedPassword} setValue={setVerifiedPassword}/>
+        <PasswordComponent value={password} setValue={setPassword} />
+        <PasswordComponent
+          value={verifiedPassword}
+          setValue={setVerifiedPassword}
+        />
       </PasswordContainer>
       <Send onClick={handleClick}>Confirmar senha</Send>
     </Container>

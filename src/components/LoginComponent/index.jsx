@@ -15,25 +15,26 @@ const LoginComponent = () => {
 
   const handleClick = () => {
     const api = new UserApi();
-    if(!email || !password) {
-      toast.warning('Digite seu email e senha corretamente')
+    if (!email || !password) {
+      toast.warning("Digite seu email e senha corretamente");
+    } else {
+      api
+        .auth(email, password)
+        .then((res) => {
+          window.localStorage.setItem("email", `${email}`);
+          navigate("/dashboard");
+        })
+        .catch((err) => {
+          toast.error(err.response.data.error);
+        });
     }
-    api.auth(email, password).then((res) => {
-      window.localStorage.setItem("email", `${email}`);
-      navigate("/dashboard");
-    }).catch((err => {
-      toast.error(err.response.data.error)
-    }));
   };
 
   return (
     <Container>
       <LogoComponent />
       <EmailComponent value={email} setValue={setEmail} />
-      <PasswordComponent
-        value={password}
-        setValue={setPassword}
-      />
+      <PasswordComponent value={password} setValue={setPassword} />
       <Send onClick={handleClick}>Entrar</Send>
       <Register>
         <Assitents onClick={() => navigate("/register")}>Cadastrar</Assitents>

@@ -11,16 +11,19 @@ const ForgetMyPasswordComponent = () => {
 
   const handleClick = () => {
     const api = new UserApi();
-    api.forgotPassword(email).then((res) => {
-      if (!email) {
-        toast.warning("Caixa email não preenchida!");
-      } else {
-        window.localStorage.setItem("email", `${email}`);
-        navigate('/forgetmypassword/ForgetMyPasswordAuth');
-      }
-    }).catch((err) => {
-      toast.error(err.response.data.error)
-    });
+    if (!email) {
+      toast.warning("Caixa email não preenchida!");
+    } else {
+      api
+        .forgotPassword(email)
+        .then((res) => {
+          window.localStorage.setItem("email", `${email}`);
+          navigate("/forgetmypassword/ForgetMyPasswordAuth");
+        })
+        .catch((err) => {
+          toast.error(err.response.data.error);
+        });
+    }
   };
 
   const navigate = useNavigate();
