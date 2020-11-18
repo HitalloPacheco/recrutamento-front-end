@@ -4,6 +4,7 @@ import PasswordComponent from "../../LoginComponent/PasswordComponent";
 import { Container, Send, PasswordContainer } from "./styles";
 import { useNavigate } from "react-router";
 import { UserApi } from "../../../core/api/user";
+import { toast } from "react-toastify";
 
 const AuthorizedChagePasswordComponent = () => {
   const [password, setPassword] = useState("");
@@ -14,16 +15,17 @@ const AuthorizedChagePasswordComponent = () => {
 
   const handleClick = () => {
     const api = new UserApi();
+    if (!password || !verifiedPassword) {
+      toast.warning("Senha não preenchida!");
+    }
     if (password === verifiedPassword) {
       api.changePassword(email, token, password).then((res) => {
-        if (!password) {
-          alert("Senha não preenchida!");
-        } else {
-          navigate("/dashboard");
-        }
+        navigate("/dashboard");
       }
-    )} else{
-      alert("Erro na autenticação da senha!")
+    ).catch((err) => {
+      toast.alert(err.response.data.error)
+    })} else {
+      toast.alert("Erro na autenticação da senha!")
     }
   };
 

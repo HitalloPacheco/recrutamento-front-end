@@ -5,6 +5,7 @@ import PasswordComponent from "./PasswordComponent";
 import { Container, Register, Assitents, Send } from "./styles";
 import { useNavigate } from "react-router";
 import { UserApi } from "../../core/api/user";
+import { toast } from "react-toastify";
 
 const LoginComponent = () => {
   const navigate = useNavigate();
@@ -15,13 +16,14 @@ const LoginComponent = () => {
   const handleClick = () => {
     const api = new UserApi();
     if(!email || !password) {
-      alert('Digite seu email e senha corretamente')
+      toast.warning('Digite seu email e senha corretamente')
     }
     api.auth(email, password).then((res) => {
-      console.log(res)
       window.localStorage.setItem("email", `${email}`);
       navigate("/dashboard");
-    });
+    }).catch((err => {
+      toast.alert(err.response.data.error)
+    }));
   };
 
   return (

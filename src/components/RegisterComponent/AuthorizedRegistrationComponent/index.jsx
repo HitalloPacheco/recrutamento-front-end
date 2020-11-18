@@ -4,6 +4,7 @@ import PasswordComponent from "../../LoginComponent/PasswordComponent";
 import { Container, Send, PasswordContainer } from "./styles";
 import { useNavigate } from "react-router";
 import { UserApi } from "../../../core/api/user";
+import { toast } from "react-toastify";
 
 const AuthorizedRegistrationComponent = () => {
   const [password, setPassword] = useState("");
@@ -22,9 +23,11 @@ const AuthorizedRegistrationComponent = () => {
         api.create(email, password).then(() => {
           navigate("/dashboard");
         });
+      } else {
+        toast.alert("Token invalido!");
       }
     } else {
-      alert("Erro de validação de senha");
+      toast.alert("Erro de validação de senha");
     }
   };
 

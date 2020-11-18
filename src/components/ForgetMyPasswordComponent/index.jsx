@@ -4,6 +4,7 @@ import EmailComponent from "../LoginComponent/EmailComponent";
 import { Container, Send } from "./styles";
 import { useNavigate } from "react-router";
 import { UserApi } from "../../core/api/user";
+import { toast } from "react-toastify";
 
 const ForgetMyPasswordComponent = () => {
   const [email, setEmail] = useState("");
@@ -11,15 +12,14 @@ const ForgetMyPasswordComponent = () => {
   const handleClick = () => {
     const api = new UserApi();
     api.forgotPassword(email).then((res) => {
-      const valid = res.data;
       if (!email) {
-        alert("Caixa email não preenchida!");
-      } else if (valid === false) {
-        alert("Usuário não existe!");
+        toast.warning("Caixa email não preenchida!");
       } else {
         window.localStorage.setItem("email", `${email}`);
         navigate('/forgetmypassword/ForgetMyPasswordAuth');
       }
+    }).catch((err) => {
+      toast.alert(err.response.data.error)
     });
   };
 
