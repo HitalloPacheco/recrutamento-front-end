@@ -22,7 +22,7 @@ const LoginComponent = () => {
       window.localStorage.setItem("email", `${email}`);
       navigate("/dashboard");
     }).catch((err => {
-      toast.alert(err.response.data.error)
+      toast.error(err.response.data.error)
     }));
   };
 

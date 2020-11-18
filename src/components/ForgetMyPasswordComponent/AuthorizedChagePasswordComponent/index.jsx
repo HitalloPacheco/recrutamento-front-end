@@ -23,9 +23,9 @@ const AuthorizedChagePasswordComponent = () => {
         navigate("/dashboard");
       }
     ).catch((err) => {
-      toast.alert(err.response.data.error)
+      toast.error(err.response.data.error)
     })} else {
-      toast.alert("Erro na autenticação da senha!")
+      toast.error("Erro na autenticação da senha!")
     }
   };
 

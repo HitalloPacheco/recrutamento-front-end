@@ -19,7 +19,7 @@ const ForgetMyPasswordComponent = () => {
         navigate('/forgetmypassword/ForgetMyPasswordAuth');
       }
     }).catch((err) => {
-      toast.alert(err.response.data.error)
+      toast.error(err.response.data.error)
     });
   };
 

@@ -21,7 +21,7 @@ const RegisterComponent = () => {
         window.localStorage.setItem("email", `${email}`);
         navigate("/register_authenticate");
       }).catch((err) => {
-        toast.alert(err.response.data.error)
+        toast.error(err.response.data.error)
       })
     }
   };

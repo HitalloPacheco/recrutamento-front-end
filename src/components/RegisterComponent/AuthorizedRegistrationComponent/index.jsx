@@ -24,10 +24,10 @@ const AuthorizedRegistrationComponent = () => {
           navigate("/dashboard");
         });
       } else {
-        toast.alert("Token invalido!");
+        toast.error("Token invalido!");
       }
     } else {
-      toast.alert("Erro de validação de senha");
+      toast.error("Erro de validação de senha");
     }
   };
 
