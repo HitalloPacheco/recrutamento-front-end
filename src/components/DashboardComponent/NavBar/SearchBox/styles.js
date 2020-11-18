@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Search = styled.input`
   height: 26px;
-  width: 400px;
+  width: 50vw;
   border-radius: 30px;
   border: none;
   background: white;

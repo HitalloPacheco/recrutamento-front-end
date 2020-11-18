@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
 export const MachineContainer = styled.div`
-  width: 380px;
+  min-width: 380px;
+  max-width: 760px;
   height: 100px;
   background-color: #f2f2f2;
   border: 1px solid gray;
   padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+  @media (max-width: 510px) {
+    min-width: 160px;
+    height: 120px;
+    padding: 5px;
+  }
 `;
 
 export const StyledTitles = styled.text`
