@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, StyledInput, StyledParam } from './styles';
 
-const AuthComponent = () => {
+const AuthComponent = ({ value, setValue }) => {
   return (
   <Container>
     <StyledParam >Código de Segurança</StyledParam>
-    <StyledInput placeholder={"1234"}/>
+    <StyledInput value={value} onChange={(e) => setValue && setValue(e.target.value)}/>
   </Container>
   );
 }

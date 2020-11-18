@@ -25,8 +25,4 @@ export const StyledInput = styled.input`
   font-size: 14px;
   font-weight: 400;
   padding-left: 10px;
-  ::placeholder{
-    color: black;
-    font-size: 14px;
-  }
 `

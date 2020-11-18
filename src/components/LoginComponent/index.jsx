@@ -14,9 +14,12 @@ const LoginComponent = () => {
 
   const handleClick = () => {
     const api = new UserApi();
+    if(!email || !password) {
+      alert('Digite seu email e senha corretamente')
+    }
     api.auth(email, password).then((res) => {
+      console.log(res)
       window.localStorage.setItem("email", `${email}`);
-      console.log(res);
       navigate("/dashboard");
     });
   };

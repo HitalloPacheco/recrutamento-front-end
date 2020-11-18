@@ -14,11 +14,13 @@ const RegisterComponent = () => {
     if (!email || !emailRegex.test(email)) {
       alert("Caixa email não preenchida corretamente!");
     } else {
-      api.createValid(email).then(() => {
+      api.verifyUser(email).then((res) => {
+        window.localStorage.setItem("cryptoToken",`${res.data.cryptoToken}`)
+        window.localStorage.setItem("now",`${res.data.now}`)
         window.localStorage.setItem("email", `${email}`);
-        navigate("/register/authorized_registration");
+        navigate("/register_authenticate");
       }).catch((err) => {
-        alert(err.response.data)
+        alert(err)
       })
     }
   };

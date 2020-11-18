@@ -10,11 +10,12 @@ const AuthorizedChagePasswordComponent = () => {
   const [verifiedPassword, setVerifiedPassword] = useState("");
 
   var email = window.localStorage.getItem("email");
+  var token = window.localStorage.getItem("token");
 
   const handleClick = () => {
     const api = new UserApi();
     if (password === verifiedPassword) {
-      api.changePassword(email, password).then((res) => {
+      api.changePassword(email, token, password).then((res) => {
         if (!password) {
           alert("Senha não preenchida!");
         } else {

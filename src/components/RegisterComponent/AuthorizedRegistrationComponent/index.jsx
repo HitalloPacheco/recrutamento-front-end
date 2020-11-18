@@ -12,10 +12,17 @@ const AuthorizedRegistrationComponent = () => {
   const handleClick = () => {
     const api = new UserApi();
     if (password === confirmedPassword) {
-      var email = window.localStorage.getItem('email');
-      api.create(email, password).then(() => {
-        navigate("/dashboard");
-      });
+      var email = window.localStorage.getItem("email"),
+        token = window.localStorage.getItem("token"),
+        cryptoToken = window.localStorage.getItem("cryptoToken"),
+        now = new Date(window.localStorage.getItem("now")),
+        _now = new Date();
+
+      if (cryptoToken === token && now > _now) {
+        api.create(email, password).then(() => {
+          navigate("/dashboard");
+        });
+      }
     } else {
       alert("Erro de validação de senha");
     }

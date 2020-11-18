@@ -10,7 +10,7 @@ const ForgetMyPasswordComponent = () => {
 
   const handleClick = () => {
     const api = new UserApi();
-    api.Valid(email).then((res) => {
+    api.forgotPassword(email).then((res) => {
       const valid = res.data;
       if (!email) {
         alert("Caixa email não preenchida!");
@@ -18,7 +18,7 @@ const ForgetMyPasswordComponent = () => {
         alert("Usuário não existe!");
       } else {
         window.localStorage.setItem("email", `${email}`);
-        navigate("/forgetmypassword/authorizedchangepassword");
+        navigate('/forgetmypassword/ForgetMyPasswordAuth');
       }
     });
   };

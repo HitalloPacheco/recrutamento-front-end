@@ -12,16 +12,16 @@ export class UserApi {
     const res = await axios.post("create", { email, password });
     return res;
   }
-  async createValid(email) {
-    const res = await axios.post("createvalid", { email });
+  async changePassword(email, token, password) {
+    const res = await axios.put("changepassword", { email, token, password });
     return res;
   }
-  async Valid(email) {
-    const res = await axios.post("valid", { email });
+  async forgotPassword(email) {
+    const res = await axios.post("forgot_password", { email });
     return res;
   }
-  async changePassword(email, password) {
-    const res = await axios.put("changepassword", { email, password });
+  async verifyUser(email) {
+    const res = await axios.post("verifyuser", { email });
     return res;
   }
 }
